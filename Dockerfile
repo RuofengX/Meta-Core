@@ -1,46 +1,14 @@
 #=================================================
-# 1. fetch paper jar file
+# 1. Get cache image
 #=================================================
+FROM registry.cn-shanghai.aliyuncs.com/1ris/meta-core:cache AS cache
 
-FROM python:3 AS fetch
-ARG PROJECT='paper'
-ARG VERSION='1.18.1'
-RUN mkdir /opt/fetch-paper-api
-COPY ./oar-core/fetch-paper-api/main.py ./oar-core/fetch-paper-api/requirements.txt  /opt/fetch-paper-api/
-WORKDIR /opt/fetch-paper-api
-RUN pip install --no-cache-dir -r requirements.txt
-RUN python main.py $PROJECT $VERSION
-
-#=================================================
-# 2. First run and download cache folder
-#=================================================
-
-FROM openjdk:17-alpine AS cache
-
-# System prepare
-ENV TZ=Asia/Shanghai JAVA_MEMORY=256M
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
-RUN apk update &&\
-    apk add --no-cache tzdata
-
-RUN mkdir /opt/paper
-WORKDIR /opt/paper
-
-COPY --from=fetch /opt/fetch-paper-api/target.jar ./paper.jar
-COPY ./oar-core/run.sh /opt/paper/run.sh
-
-# First run to cache
-COPY ./oar-core/run.sh .
-RUN sh run.sh
-RUN rm /opt/openjdk-17 -r
-
-#=================================================
-# 3. alpha test
+# 2. alpha test
 #=================================================
 
 FROM openjdk:17-alpine AS alpha
 # System prepare
-ENV TZ=Asia/Shanghai JAVA_MEMORY=1G
+ENV TZ=Asia/Shanghai JAVA_MEMORY=4G
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
 RUN apk update &&\
     apk add --no-cache tzdata
@@ -64,7 +32,7 @@ COPY ./design/server-icon.png .
 ENTRYPOINT ["sh", "/opt/paper/run.sh"]
 
 #=================================================
-# 4. debug test
+# 3. debug test
 #=================================================
 
 FROM openjdk:17-alpine AS debug
