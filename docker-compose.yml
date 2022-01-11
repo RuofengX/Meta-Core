@@ -4,7 +4,7 @@ services:
     build:
       context: .
       target: alpha
-      dockerfile: Docker-release
+      dockerfile: Dockerfile-release
     ports:
       - 25575:25575
     restart: always
