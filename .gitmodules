@@ -1,0 +1,3 @@
+[submodule "oar-core"]
+	path = oar-core
+	url = https://gitee.com/ruofengx/oar-core
