@@ -21,8 +21,6 @@ stages:
         password: ee89465c-bca5-4059-aebc-4b1d467d8216
         tag: meta-core-alpha-${GITEE_PIPELINE_BUILD_NUMBER}
         dockerfile: ./Dockerfile
-        artifacts:
-          - ${BUILD_ARTIFACT}
         isCache: false
   - name: stage-176a462a
     displayName: 未命名
