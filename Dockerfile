@@ -32,6 +32,7 @@ COPY ./oar-core/run.sh /opt/paper/run.sh
 # First run to cache
 COPY ./oar-core/run.sh .
 RUN sh run.sh
+RUN rm /opt/openjdk-17 -r
 
 #=================================================
 # 3. alpha test
@@ -39,7 +40,7 @@ RUN sh run.sh
 
 FROM openjdk:17-alpine AS alpha
 # System prepare
-ENV TZ=Asia/Shanghai JAVA_MEMORY=4G
+ENV TZ=Asia/Shanghai JAVA_MEMORY=1G
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
 RUN apk update &&\
     apk add --no-cache tzdata
@@ -47,13 +48,7 @@ RUN apk update &&\
 RUN mkdir /opt/paper
 WORKDIR /opt/paper
 
-COPY --from=fetch /opt/fetch-paper-api/target.jar ./paper.jar
-COPY ./oar-core/run.sh /opt/paper/run.sh
-COPY --from=cache /opt/paper/cache ./cache
-
-# First run
-COPY ./oar-core/run.sh .
-RUN sh run.sh
+COPY --from=cache /opt/paper .
 
 # Config
 RUN sed -i "s/eula=false/eula=true/g" eula.txt
@@ -99,6 +94,6 @@ COPY ./config/server.properties\
      ./
 
 # Avatar
-COPY ./oar-core/design/server-icon.png .
+COPY ./design/server-icon.png .
 
 ENTRYPOINT ["sh", "/opt/paper/run.sh"]
