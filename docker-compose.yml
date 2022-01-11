@@ -1,0 +1,47 @@
+version: '3'
+services:
+  meta:
+    build:
+      context: .
+      target: alpha
+    ports:
+      - 25575:25575
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: "500k"
+        max-file: "10"
+    volumes:
+      - type: volume
+        source: worlds
+        target: /mnt/worlds
+        volume:
+          nocopy: true
+      - type: volume
+        source: plugins
+        target: /opt/paper/plugins
+        volume:
+          nocopy: true
+      - type: volume
+        source: logs
+        target: /opt/paper/logs
+        volume:
+          nocopy: true
+
+volumes:
+  worlds:
+    driver_opts:
+      type: "nfs"
+      o: "addr=nfs.inner.s-2.link,nolock,soft,rw"
+      device: ":/rrpu8kxb/meta/worlds"
+  plugins:
+    driver_opts:
+      type: "nfs"
+      o: "addr=nfs.inner.s-2.link,nolock,soft,rw"
+      device: ":/rrpu8kxb/meta/plugins"
+  logs:
+    driver_opts:
+      type: "nfs"
+      o: "addr=nfs.inner.s-2.link,nolock,soft,rw"
+      device: ":/rrpu8kxb/meta/logs"
