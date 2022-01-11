@@ -1,11 +1,11 @@
 version: '1.0'
 name: pipeline-20220112
-displayName: pipeline-20220112
+displayName: alpha
 triggers:
   push:
     branches:
       prefix:
-        - ''
+        - master
 stages:
   - name: stage-a7d40da6
     displayName: 未命名
