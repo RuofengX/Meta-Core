@@ -15,17 +15,15 @@ RUN python main.py $PROJECT $VERSION
 # 2. First run and download cache folder
 #=================================================
 
-FROM openjdk:17-alpine AS cache
+FROM openjdk:17 AS cache
 
 # System prepare
 ENV TZ=Asia/Shanghai JAVA_MEMORY=256M
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
-RUN apk update &&\
-    apk add --no-cache tzdata
 
 RUN mkdir /opt/paper
 WORKDIR /opt/paper
 
+# TODO: Use paperclip, not paper to do perepare
 COPY --from=fetch /opt/fetch-paper-api/target.jar ./paper.jar
 COPY ./oar-core/run.sh /opt/paper/run.sh
 
