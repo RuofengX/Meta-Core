@@ -1,7 +1,7 @@
 #=================================================
 # 1. Get cache image
 #=================================================
-FROM registry.cn-shanghai.aliyuncs.com/1ris/meta-core:cache AS game-core
+FROM registry.cn-shanghai.aliyuncs.com/1ris/game-core:latest AS game-core
 
 #=================================================
 # 2. production
