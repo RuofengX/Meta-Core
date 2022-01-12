@@ -7,7 +7,7 @@ FROM registry.cn-shanghai.aliyuncs.com/1ris/meta-core:cache AS cache
 # 2. alpha test
 #=================================================
 
-FROM openjdk:17 AS alpha
+FROM amazoncorretto:17 AS alpha
 # System prepare
 ENV TZ=Asia/Shanghai JAVA_MEMORY=4G
 
@@ -33,7 +33,7 @@ ENTRYPOINT ["sh", "/opt/paper/run.sh"]
 # 3. debug test
 #=================================================
 
-FROM openjdk:17 AS debug
+FROM amazoncorretto:17 AS debug
 # System prepare
 ENV TZ=Asia/Shanghai JAVA_MEMORY=1G
 
