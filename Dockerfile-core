@@ -15,7 +15,7 @@ RUN python main.py $PROJECT $VERSION
 # 2. First run and download cache folder
 #=================================================
 
-FROM openjdk:17 AS cache
+FROM openjdk:17 AS pre-cache
 
 # System prepare
 ENV TZ=Asia/Shanghai JAVA_MEMORY=256M
@@ -30,4 +30,16 @@ COPY ./oar-core/run.sh /opt/paper/run.sh
 # First run to cache
 COPY ./oar-core/run.sh .
 RUN sh run.sh
-RUN rm /opt/openjdk-17 -r
+
+#=================================================
+# 3. COPY game folder into a game-ready image
+#=================================================
+
+FROM alpine:latest AS game-core
+
+ENV TZ=Asia/Shanghai JAVA_MEMORY=256M
+
+RUN mkdir /opt/paper
+WORKDIR /opt/paper
+
+COPY --from=pre-cache /opt/paper /opt/paper

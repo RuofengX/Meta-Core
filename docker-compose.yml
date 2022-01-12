@@ -3,7 +3,7 @@ services:
   meta:
     build:
       context: .
-      target: alpha
+      target: production
       dockerfile: Dockerfile
     ports:
       - 25575:25575

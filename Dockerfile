@@ -1,13 +1,13 @@
 #=================================================
 # 1. Get cache image
 #=================================================
-FROM registry.cn-shanghai.aliyuncs.com/1ris/meta-core:cache AS cache
+FROM registry.cn-shanghai.aliyuncs.com/1ris/meta-core:cache AS game-core
 
 #=================================================
-# 2. alpha test
+# 2. production
 #=================================================
 
-FROM amazoncorretto:17 AS alpha
+FROM amazoncorretto:17 AS production
 # System prepare
 ENV TZ=Asia/Shanghai JAVA_MEMORY=4G
 
