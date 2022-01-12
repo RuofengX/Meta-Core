@@ -1,12 +1,9 @@
 # Meta-Core  
 Meta世界的核心  
-# TODO:需要更新
-## 子模块  
-由于使用了git子模块，需要在克隆时加上递归选项：  
+改变往常笨重、有限的服务器部署方式，采用Docker应用镜像进行服务器端的部署和运行。将传统软件拆分为：无状态镜像 + 无状态服务 + 有状态程序三个部分，提高了服务器部署的灵活性。
 
-
-## 运行说明
-1. 使用命令`git clone --recursive https://gitee.com/ruofengx/meta-core.git `克隆项目  
+## 基本配置  
+1. 使用命令`git clone https://gitee.com/ruofengx/meta-core.git `克隆项目  
 2. 登录core实例，配置密钥对:
 ```
 mkdir ~/.ssh
@@ -14,23 +11,22 @@ chmod 700 ~/.ssh
 ssh-keygen -q -t ed25519 -C "weiruofeng@ruofengx.cn" -f ~/.ssh/id_ed25519 -N ''
 echo $(cat ~/.ssh/id_ed25519.pub)
 ```  
-3. 将结果复制到ruofengx的[管理界面](https://gitee.com/profile/sshkeys)，详细步骤请查看[帮助文档](https://gitee.com/help/articles/4181)
-4. 运行`git clone --recursive https://gitee.com/ruofengx/meta-core.git`克隆仓库到本地  
-5. 运行 `docker-compose up --build -d --remove-orphans`启动  
+3. 让管理员将公钥添加到仓库设置中  
+> #### 有用的提示  
+> 1. 运行`git clone --recursive https://gitee.com/ruofengx/meta-core.git`克隆仓库到本地  
+> 2. 运行 `docker-compose up --build -d --remove-orphans`启动  
 
+## 部署流程  
+项目为加快构建时间采用了多阶段部署，相关配置文件说明如下：  
+- ### 无状态镜像  
+  Dockerfile-core将从papermc.io/api下载并初步构建（无配置文件）一个代号`game-core`的半成品镜像。对应上游提供的特定版本的服务端软件。项目使用CI将镜像传输至国内仓库。  
+- ### 无状态服务  
+  Dockerfile将会使用最新的`game-core`作为加速镜像，并加载config文件夹中的配置文件，内存等java启动参数在这里配置。  
+- ### 有状态程序  
+  docker-compose.yml配置了协同运作的硬件周边，nfs挂载就在这里配置。同时，使用compose还可以方便的管理应用。  
 ## 开发说明  
-1. 私有仓库SSH密钥配置[帮助文档](https://gitee.com/help/articles/4181)  
-2. 使用命令`git clone --recursive https://gitee.com/ruofengx/meta-core.git `克隆项目  
-3. 使用命令`git submodule update --recursive`更新子模块  
-4. `docker-compose -f debug.yml up --build -d --remove-orphans`启动debug实例  
-4. 使用命令`docker build --target debug -o docker-fs/debug`保存镜像文件系统到本地查看  
-
-# 技术约定  
-## 端口  
-- 25565: OAR Oasis服的velocity加密端口，内网；  
-- 25575: OAR Meta服的velocity加密端口，内网；  
-- 60000: S-2网络四层转发节点目标端口，带pp数据包；  
-## TODOs  
-[ ] 1. Prevent papermc core save log file in logs folder.  
-[ ] 2. Convert OAR Oasis to docker container.  
-[x] 3. Multi stage build to solve download vallina slow.  
+> #### 一些有用的提示  
+> 1. `git clone --recursive https://gitee.com/ruofengx/meta-core.git `克隆项目  
+> 2. `git submodule update --recursive`更新子模块  
+> 3. `docker-compose -f debug.yml up --build -d --remove-orphans`启动debug实例  
+> 4. `docker build --target debug -o docker-fs/debug`保存镜像文件系统到本地查看  
