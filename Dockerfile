@@ -4,7 +4,7 @@
 FROM registry.cn-shanghai.aliyuncs.com/1ris/game-core:latest AS game-core
 
 #=================================================
-# 2. production
+# 2. Production
 #=================================================
 
 FROM amazoncorretto:17 AS production
