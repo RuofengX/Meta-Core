@@ -142,8 +142,8 @@ world-settings:
       other-multiplier: 0.0
     max-tnt-per-tick: 100
     max-tick-time:
-      tile: 20
-      entity: 15
+      tile: 35
+      entity: 40
     end-portal-sound-radius: 0
     nerf-spawner-mobs: false
     zombie-aggressive-towards-villager: true
