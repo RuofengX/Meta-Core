@@ -21,7 +21,8 @@ echo $(cat ~/.ssh/id_ed25519.pub)
 项目为加快构建时间采用了多阶段部署，相关配置文件说明如下：  
 - ### 无状态镜像  
   Dockerfile-core将从papermc.io/api下载并初步构建（无配置文件）一个代号`game-core`的半成品镜像。对应上游提供的特定版本的服务端软件。项目使用CI将镜像传输至国内仓库，地址为`registry.cn-shanghai.aliyuncs.com/1ris/game-core:latest`。  
-  mater分支进行tag之前需要手动运行test-game-core.sh脚本，无异常后方可添加tag，push之后CI会自动更新latest镜像。
+  > #### 测试  
+  > mater分支进行tag之前需要手动运行test-game-core.sh脚本，无异常后方可添加tag，push之后CI会自动更新latest镜像。
 - ### 无状态服务  
   Dockerfile将会使用最新的`game-core`作为加速镜像，并加载config文件夹中的配置文件，内存等java启动参数在这里配置。  
 - ### 有状态程序  
