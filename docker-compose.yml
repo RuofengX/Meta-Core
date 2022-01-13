@@ -6,7 +6,8 @@ services:
       target: production
       dockerfile: Dockerfile
     ports:
-      - 25575:25575
+      - 25575:25565  # Meta
+      - 25576:25575  # recon
     restart: always
     logging:
       driver: json-file
