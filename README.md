@@ -4,7 +4,7 @@ Meta世界的核心
 
 ## 基本配置  
 1. 使用命令`git clone https://gitee.com/ruofengx/meta-core.git `克隆项目  
-2. 登录core实例，配置密钥对:
+2. 登录core实例，配置密钥对
 ```
 mkdir ~/.ssh
 chmod 700 ~/.ssh
@@ -15,6 +15,7 @@ echo $(cat ~/.ssh/id_ed25519.pub)
 > #### 有用的提示  
 > 1. 运行`git clone --recursive https://gitee.com/ruofengx/meta-core.git`克隆仓库到本地  
 > 2. 运行 `docker-compose up --build -d --remove-orphans`启动  
+> 3. 销毁容器前务必保存存档！！！！！！
 
 ## 部署流程  
 项目为加快构建时间采用了多阶段部署，相关配置文件说明如下：  
