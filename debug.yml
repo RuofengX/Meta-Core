@@ -3,7 +3,7 @@ services:
   debug-entry:
     build:
       context: .
-      target: debug
+      target: production
     ports:
       - 25565:25565
     restart: always

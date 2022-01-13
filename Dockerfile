@@ -28,30 +28,3 @@ COPY ./config/server.properties\
 COPY ./design/server-icon.png .
 
 ENTRYPOINT ["sh", "/opt/paper/run.sh"]
-
-#=================================================
-# 3. debug test
-#=================================================
-
-FROM amazoncorretto:17 AS debug
-# System prepare
-ENV TZ=Asia/Shanghai JAVA_MEMORY=1G
-
-RUN mkdir /opt/paper
-WORKDIR /opt/paper
-
-COPY --from=cache /opt/paper .
-
-# Config
-RUN sed -i "s/eula=false/eula=true/g" eula.txt
-COPY ./config/server.properties\ 
-     ./config/bukkit.yml\ 
-     ./config/spigot.yml\ 
-     ./config/paper.yml\ 
-     ./
-
-# Avatar
-COPY ./design/server-icon.png .
-
-ENTRYPOINT ["sh", "/opt/paper/run.sh"]
-
