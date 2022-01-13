@@ -26,5 +26,5 @@ ticks-per:
   water-ambient-spawns: 1
   water-underground-creature-spawns: 1
   ambient-spawns: 1
-  autosave: 1  # default is 1
+  autosave: 1200  # Every minute process a save  # default is 0
 aliases: now-in-commands.yml
