@@ -7,7 +7,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - 25575:25565  # Meta
-      - 25576:25575  # recon
     restart: always
     stdin_open: true  # -i
     tty: true  # -t
