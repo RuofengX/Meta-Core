@@ -1,11 +1,17 @@
 version: '3'
 services:
-  debug-entry:
+  meta:
     build:
       context: .
       target: production
+      dockerfile: Dockerfile-prod
     ports:
-      - 25565:25565
+      - 25575:25565  # Meta
     restart: always
     stdin_open: true  # -i
     tty: true  # -t
+    logging:
+      driver: json-file
+      options:
+        max-size: "500k"
+        max-file: "10"

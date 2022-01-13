@@ -26,7 +26,7 @@ echo $(cat ~/.ssh/id_ed25519.pub)
 - ### 无状态服务  
   Dockerfile将会使用最新的`game-core`作为加速镜像，并加载config文件夹中的配置文件，内存等java启动参数在这里配置。  
 - ### 有状态程序  
-  docker-compose.yml配置了协同运作的硬件周边，nfs挂载在这里配置。同时，使用compose还可以方便的管理应用。  
+  docker-compose.yml配置了协同运作的硬件周边，nfs挂载在这里配置。同时，使用compose还可以方便的管理应用。运行startup.sh即可部署。  
 ## 开发说明  
 > #### 一些有用的提示  
 > 1. `git clone --recursive https://gitee.com/ruofengx/meta-core.git `克隆项目  
