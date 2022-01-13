@@ -14,7 +14,7 @@ ENV TZ=Asia/Shanghai JAVA_MEMORY=4G
 RUN mkdir /opt/paper
 WORKDIR /opt/paper
 
-COPY --from=cache /opt/paper .
+COPY --from=game-core /opt/paper .
 
 # Config
 RUN sed -i "s/eula=false/eula=true/g" eula.txt
