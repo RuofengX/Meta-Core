@@ -23,7 +23,6 @@ COPY ./config/server.properties\
      ./config/bukkit.yml\ 
      ./config/spigot.yml\ 
      ./config/paper.yml\ 
-     ./config/usercache.json\ 
      ./
 
 # Avatar
