@@ -33,3 +33,6 @@ echo $(cat ~/.ssh/id_ed25519.pub)
 > 2. `git submodule update --recursive`更新子模块  
 > 3. `docker-compose -f debug.yml up --build -d --remove-orphans`启动debug实例  
 > 4. `docker build --target debug -o docker-fs/debug`保存镜像文件系统到本地查看  
+
+## TODOs
+[ ]: server.properties中的难度选项无法正确初始化
