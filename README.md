@@ -36,3 +36,6 @@ echo $(cat ~/.ssh/id_ed25519.pub)
 
 ## TODOs
 [ ]: server.properties中的难度选项无法正确初始化
+
+## 版本更新  
+- PaperMC版本#205
