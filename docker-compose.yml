@@ -1,6 +1,7 @@
 version: '3'
 services:
   meta:
+    container_name: meta_core
     build:
       context: .
       target: production
