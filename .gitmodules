@@ -3,4 +3,4 @@
 	url = https://gitee.com/ruofengx/oar-core
 [submodule "minecraft-banlist"]
 	path = minecraft-banlist
-	url = ./minecraft-banlist
+	url = git@gitee.com:ruofengx/minecraft-banlist.git
