@@ -32,8 +32,8 @@ services:
         target: /opt/paper/logs
         volume:
           nocopy: true
-      - ./banlist/banned-players.json:/opt/paper/banned-players.json:rw
-      - ./banlist/banned-ips.json:/opt/paper/banned-ips.json:rw
+      - ./minecraft-banlist/banned-players.json:/opt/paper/banned-players.json:rw
+      - ./minecraft-banlist/banned-ips.json:/opt/paper/banned-ips.json:rw
 
 volumes:
   worlds:
