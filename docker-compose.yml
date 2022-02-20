@@ -41,7 +41,6 @@ services:
         target: /opt/paper/banned-players.json
         volume:
           nocopy: true
-#      - ./config/usercache.json:/opt/paper/usercache.json:rw
 
 volumes:
   worlds:
