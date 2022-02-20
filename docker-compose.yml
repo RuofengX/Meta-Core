@@ -31,7 +31,17 @@ services:
         target: /opt/paper/logs
         volume:
           nocopy: true
-      - ./config/usercache.json:/opt/paper/usercache.json:rw
+      - type: volume
+        source: ban-ip
+        target: /opt/paper/banned-ips.json
+        volume:
+          nocopy: true
+      - type: volume
+        source: ban-player
+        target: /opt/paper/banned-players.json
+        volume:
+          nocopy: true
+#      - ./config/usercache.json:/opt/paper/usercache.json:rw
 
 volumes:
   worlds:
@@ -49,3 +59,15 @@ volumes:
       type: "nfs"
       o: "addr=nfs.inner.s-2.link,nolock,soft,rw"
       device: ":/rrpu8kxb/meta/logs"
+  
+  ban-ip:
+    driver_opts:
+      type: "nfs"
+      o: "addr=nfs.inner.s-2.link,nolock,soft,rw"
+      device: ":/rrpu8kxb/meta/banlist/banned-ips.json"
+
+  ban-player:
+    driver_opts:
+      type: "nfs"
+      o: "addr=nfs.inner.s-2.link,nolock,soft,rw"
+      device: ":/rrpu8kxb/meta/banlist/banned-players.json"
