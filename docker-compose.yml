@@ -32,16 +32,8 @@ services:
         target: /opt/paper/logs
         volume:
           nocopy: true
-      # - type: volume#TODO: 共享banlist，submodule实现
-      #   source: ban/banned-ips.json
-      #   target: /opt/paper/banned-ips.json
-      #   volume:
-      #     nocopy: true
-      # - type: volume
-      #   source: ban/banned-players.json
-      #   target: /opt/paper/banned-players.json
-      #   volume:
-      #     nocopy: true
+      - ./banlist/banned-players.json:/opt/paper/banned-players.json:rw
+      - ./banlist/banned-ips.json:/opt/paper/banned-ips.json:rw
 
 volumes:
   worlds:
@@ -59,9 +51,3 @@ volumes:
       type: "nfs"
       o: "addr=nfs.inner.s-2.link,nolock,soft,rw"
       device: ":/rrpu8kxb/meta/logs"
-  
-  ban:
-    driver_opts:
-      type: "nfs"
-      o: "addr=nfs.inner.s-2.link,nolock,soft,rw"
-      device: ":/rrpu8kxb/meta/banlist"
