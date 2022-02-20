@@ -10,7 +10,7 @@ FROM registry.cn-shanghai.aliyuncs.com/1ris/game-core:latest AS game-core
 FROM amazoncorretto:17 AS production
 
 # System Environment
-ENV TZ=Asia/Shanghai JAVA_MEMORY=4G LANG=en_US.utf8
+ENV TZ=Asia/Shanghai JAVA_MEMORY=5G LANG=en_US.utf8
 RUN mkdir /opt/paper
 WORKDIR /opt/paper
 
