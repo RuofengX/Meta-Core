@@ -1,4 +1,4 @@
-# This file will build a CORE image, and this file will be only used in CI
+# This file will build a CORE image, and this file will be only used by CI
 
 #=================================================
 # 1. fetch paper jar file
@@ -8,7 +8,7 @@ FROM python:3 AS fetch
 ARG PROJECT='paper'
 ARG VERSION='1.18.1'
 RUN mkdir /opt/fetch-paper-api
-COPY ./oar-core/fetch-paper-api/main.py ./oar-core/fetch-paper-api/requirements.txt  /opt/fetch-paper-api/
+COPY ./fetch-paper-api/main.py ./fetch-paper-api/requirements.txt  /opt/fetch-paper-api/
 WORKDIR /opt/fetch-paper-api
 RUN pip install --no-cache-dir -r requirements.txt
 RUN python main.py $PROJECT $VERSION
@@ -27,10 +27,10 @@ WORKDIR /opt/paper
 
 # TODO: Use paperclip, not paper to do perepare
 COPY --from=fetch /opt/fetch-paper-api/target.jar ./paper.jar
-COPY ./oar-core/run.sh /opt/paper/run.sh
+COPY ./run.sh /opt/paper/run.sh
 
 # First run to cache
-COPY ./oar-core/run.sh .
+COPY ./run.sh .
 RUN sh run.sh
 
 #=================================================

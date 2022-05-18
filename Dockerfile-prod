@@ -1,4 +1,5 @@
 # This file will try to pull the latest CORE image and add some necessary config onto it.
+# This file will only be used by docker-compose file.
 
 #=================================================
 # 1. Get cache image

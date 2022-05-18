@@ -1,6 +1,6 @@
-[submodule "oar-core"]
-	path = oar-core
-	url = https://gitee.com/ruofengx/oar-core
 [submodule "minecraft-banlist"]
 	path = minecraft-banlist
 	url = https://gitee.com/ruofengx/minecraft-banlist
+[submodule "fetch-paper-api"]
+	path = fetch-paper-api
+	url = https://gitee.com/ruofengx/fetch-paper-api.git
