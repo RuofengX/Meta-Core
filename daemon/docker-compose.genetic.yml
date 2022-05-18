@@ -1,0 +1,64 @@
+version: '3'
+services:
+  meta:
+    container_name: meta_core
+    build:
+      context: .
+      target: production
+      dockerfile: ./meta-core/Dockerfile-timemachine
+    ports:
+      - 25575:25565  # Meta
+    restart: always
+    stdin_open: true  # -i
+    tty: true  # -t
+    logging:
+      driver: json-file
+      options:
+        max-size: "500k"
+        max-file: "10"
+
+    volumes:
+
+      # TODO: 绑定下载好的正确的世界存档
+      # - type: volume
+      #   source: worlds
+      #   target: /mnt/worlds
+      #   volume:
+      #     nocopy: true
+
+      - type: volume
+        source: plugins
+        target: /opt/paper/plugins
+        volume:
+          nocopy: true
+      
+      # 不再挂载日志文件夹
+      # - type: volume
+      #   source: logs
+      #   target: /opt/paper/logs
+      #   volume:
+      #     nocopy: true
+      
+      - ./minecraft-banlist/banned-players.json:/opt/paper/banned-players.json:rw
+      - ./minecraft-banlist/banned-ips.json:/opt/paper/banned-ips.json:rw
+
+volumes:
+# TODO: 绑定下载好的正确的世界存档
+  # worlds:
+  #   driver_opts:
+  #     type: "nfs"
+  #     o: "addr=nfs.inner.s-2.link,nolock,soft,rw"
+  #     device: ":/rrpu8kxb/meta/worlds"
+  
+  plugins:
+    driver_opts:
+      type: "nfs"
+      o: "addr=nfs.inner.s-2.link,nolock,soft,rw"
+      device: ":/rrpu8kxb/meta/plugins"
+
+  # 不再挂载日志文件夹
+  # logs:
+  #   driver_opts:
+  #     type: "nfs"
+  #     o: "addr=nfs.inner.s-2.link,nolock,soft,rw"
+  #     device: ":/rrpu8kxb/meta/logs"
