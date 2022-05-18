@@ -3,19 +3,6 @@
 Meta世界的核心  
 Docker多阶段构建 + docker-compose运行。
 
-## 密钥配置  
-1. 使用命令`git clone git@codeup.aliyun.com:61d596eb0a8596bb8ae3ec6a/meta-core.git`克隆项目  
-2. 如果提示鉴权失败，则需要执行以下步骤——登录core实例，配置密钥对  
-
-```
-mkdir ~/.ssh
-chmod 700 ~/.ssh
-ssh-keygen -q -t ed25519 -C "weiruofeng@ruofengx.cn" -f ~/.ssh/id_ed25519 -N ''
-echo $(cat ~/.ssh/id_ed25519.pub)
-```  
-
-3. 让管理员将公钥添加到仓库设置中  
-
 ## 使用说明  
 1. 首先配置密钥。  
 2. 运行`https://github.com/RuofengX/Meta-Core`克隆仓库到本地。  
