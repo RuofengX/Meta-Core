@@ -1,6 +1,7 @@
 version: '3'
 services:
   meta:
+    container_name: meta_core
     build:
       context: .
       target: production
@@ -31,7 +32,8 @@ services:
         target: /opt/paper/logs
         volume:
           nocopy: true
-      - ./config/usercache.json:/opt/paper/usercache.json:rw
+      - ./minecraft-banlist/banned-players.json:/opt/paper/banned-players.json:rw
+      - ./minecraft-banlist/banned-ips.json:/opt/paper/banned-ips.json:rw
 
 volumes:
   worlds:

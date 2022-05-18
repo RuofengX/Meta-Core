@@ -1,2 +1,3 @@
 docker-fs/*
 .vscode
+config/usercache.json

@@ -29,11 +29,10 @@ messages:
     flying-vehicle: Flying is not enabled on this server
     authentication-servers-down: ''
     connection-throttle: Connection throttled! Please wait before reconnecting.
-  no-permission: '&cI''m sorry, but you do not have permission to perform this command.
-    Please contact the server administrators if you believe that this is in error.'
+  no-permission: '&c很遗憾，您没有这个权限 | Sorry, but you do not have permission to perform this command.'
 config-version: 24
 settings:
-  bungee-online-mode: true
+  bungee-online-mode: false  # default is true
   velocity-support:
     enabled: true
     online-mode: false
