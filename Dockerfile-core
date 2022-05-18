@@ -6,7 +6,10 @@
 
 FROM python:3 AS fetch
 ARG PROJECT='paper'
-ARG VERSION='1.18.1'
+
+# This is the version number, change it here if you needed
+ARG VERSION='1.18.1'  
+
 RUN mkdir /opt/fetch-paper-api
 COPY ./fetch-paper-api/main.py ./fetch-paper-api/requirements.txt  /opt/fetch-paper-api/
 WORKDIR /opt/fetch-paper-api
