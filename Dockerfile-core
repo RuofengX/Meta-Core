@@ -1,3 +1,5 @@
+# This file will build a CORE image, and this file will be only used in CI
+
 #=================================================
 # 1. fetch paper jar file
 #=================================================
