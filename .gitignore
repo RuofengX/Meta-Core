@@ -1,3 +1,5 @@
 docker-fs/*
 .vscode
 config/usercache.json
+.env
+TENCENT_KEY

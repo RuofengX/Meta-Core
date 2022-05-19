@@ -6,7 +6,7 @@
 
 FROM python:3 AS fetch
 ARG PROJECT='paper'
-ARG VERSION='1.18.1'
+ARG VERSION='1.18.2'
 RUN mkdir /opt/fetch-paper-api
 COPY ./fetch-paper-api/main.py ./fetch-paper-api/requirements.txt  /opt/fetch-paper-api/
 WORKDIR /opt/fetch-paper-api
