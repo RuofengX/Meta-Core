@@ -6,9 +6,9 @@
 # join us in our Discord or IRC channel.
 #
 # Discord: https://discord.gg/papermc
-# IRC: #paper @ irc.esper.net ( https://webchat.esper.net/?channels=paper ) 
-# Website: https://papermc.io/ 
-# Docs: https://paper.readthedocs.org/ 
+# IRC: #paper @ irc.esper.net ( https://webchat.esper.net/?channels=paper )
+# Website: https://papermc.io/
+# Docs: https://paper.readthedocs.org/
 
 verbose: false
 timings:
@@ -17,9 +17,9 @@ timings:
   url: https://timings.aikar.co/
   server-name-privacy: false
   hidden-config-entries:
-  - database
-  - settings.bungeecord-addresses
-  - settings.velocity-support.secret
+    - database
+    - settings.bungeecord-addresses
+    - settings.velocity-support.secret
   history-interval: 300
   history-length: 3600
   server-name: Unknown Server
@@ -27,16 +27,16 @@ messages:
   kick:
     flying-player: Flying is not enabled on this server
     flying-vehicle: Flying is not enabled on this server
-    authentication-servers-down: ''
+    authentication-servers-down: ""
     connection-throttle: Connection throttled! Please wait before reconnecting.
-  no-permission: '&c很遗憾，您没有这个权限 | Sorry, but you do not have permission to perform this command.'
+  no-permission: "&c很遗憾，您没有这个权限 | Sorry, but you do not have permission to perform this command."
 config-version: 24
 settings:
-  bungee-online-mode: false  # default is true
+  bungee-online-mode: false # default is true
   velocity-support:
     enabled: true
     online-mode: false
-    secret: 'ahQuoox1'
+    secret: "ahQuoox1"
   player-auto-save-rate: -1
   max-player-auto-save-per-tick: -1
   fix-target-selector-tag-completion: true
@@ -77,13 +77,13 @@ settings:
   load-permissions-yml-before-plugins: true
   track-plugin-scoreboards: false
   max-joins-per-tick: 3
-  use-alternative-luck-formula: true  # default is false
-  console-has-all-permissions: true  # default is false
+  use-alternative-luck-formula: true # default is false
+  console-has-all-permissions: true # default is false
   enable-player-collisions: true
   async-chunks:
     threads: -1
   packet-limiter:
-    kick-message: '&cSent too many packets'
+    kick-message: "&cSent too many packets"
     limits:
       all:
         interval: 7.0
@@ -97,13 +97,16 @@ settings:
     allow-piston-duplication: false
     allow-headless-pistons: false
     perform-username-validation: true
-    allow-permanent-block-break-exploits-readme: This setting controls if players
+    allow-permanent-block-break-exploits-readme:
+      This setting controls if players
       should be able to break bedrock, end portals and other intended to be permanent
       blocks.
-    allow-piston-duplication-readme: This setting controls if player should be able
+    allow-piston-duplication-readme:
+      This setting controls if player should be able
       to use TNT duplication, but this also allows duplicating carpet, rails and potentially
       other items
-    allow-headless-pistons-readme: This setting controls if players should be able
+    allow-headless-pistons-readme:
+      This setting controls if players should be able
       to create headless pistons.
 world-settings:
   default:
@@ -131,14 +134,14 @@ world-settings:
       scan-for-legacy-ender-dragon: true
       fix-curing-zombie-villager-discount-exploit: true
       disable-mob-spawner-spawn-egg-transformation: false
-      disable-end-credits: true  # default is false
+      disable-end-credits: true # default is false
       disable-unloaded-chunk-enderpearl-exploit: true
       disable-relative-projectile-velocity: false
       disable-chest-cat-detection: false
       nerf-pigmen-from-nether-portals: false
       disable-player-crits: false
       disable-sprint-interruption-on-attack: false
-      shield-blocking-delay: 0  # default is 5
+      shield-blocking-delay: 0 # default is 5
     mob-effects:
       undead-immune-to-certain-effects: true
       spiders-immune-to-poison-effect: true
@@ -159,14 +162,14 @@ world-settings:
           hide-itemmeta: false
           hide-durability: false
     monster-spawn-max-light-level: -1
-    ender-dragons-death-always-places-dragon-egg: true  # default is false
+    ender-dragons-death-always-places-dragon-egg: true # default is false
     allow-using-signs-inside-spawn-protection: false
     piglins-guard-chests: true
     should-remove-dragon: false
     max-auto-save-chunks-per-tick: 24
     baby-zombie-movement-modifier: 0.5
     use-vanilla-world-scoreboard-name-coloring: false
-    prevent-moving-into-unloaded-chunks: true  # default is false
+    prevent-moving-into-unloaded-chunks: true # default is false
     count-all-mobs-for-spawning: false
     spawn-limits:
       monster: -1
@@ -176,8 +179,8 @@ world-settings:
       underground_water_creature: -1
       water_creature: -1
       water_ambient: -1
-    optimize-explosions: true  # default is true
-    experience-merge-max-value: 100  # default is -1
+    optimize-explosions: true # default is true
+    experience-merge-max-value: 100 # default is -1
     wandering-trader:
       spawn-minute-length: 1200
       spawn-day-length: 24000
@@ -186,10 +189,10 @@ world-settings:
       spawn-chance-max: 75
     door-breaking-difficulty:
       zombie:
-      - HARD
+        - HARD
       vindicator:
-      - NORMAL
-      - HARD
+        - NORMAL
+        - HARD
     max-growth-height:
       cactus: 3
       reeds: 3
@@ -245,7 +248,7 @@ world-settings:
       refresh-min: 12h
       refresh-max: 2d
     enable-treasure-maps: true
-    treasure-maps-return-already-discovered: true  # default is false
+    treasure-maps-return-already-discovered: true # default is false
     mob-spawner-tick-rate: 1
     zombies-target-turtle-eggs: true
     zombie-villager-infection-chance: -1.0
@@ -267,14 +270,14 @@ world-settings:
     prevent-tnt-from-moving-in-water: false
     fixed-chunk-inhabited-time: -1
     remove-corrupt-tile-entities: false
-    use-faster-eigencraft-redstone: true  # default is false
+    use-faster-eigencraft-redstone: true # default is false
     grass-spread-tick-rate: 1
     water-over-lava-flow-speed: 5
     skeleton-horse-thunder-spawn-chance: 0.01
     disable-thunder: false
     disable-ice-and-snow: false
     keep-spawn-loaded-range: 10
-    fix-items-merging-through-walls: true  # default is false
+    fix-items-merging-through-walls: true # default is false
     keep-spawn-loaded: true
     anti-xray:
       enabled: true
@@ -284,33 +287,32 @@ world-settings:
       lava-obscures: false
       use-permission: false
       hidden-blocks:
-      - copper_ore
-      - deepslate_copper_ore
-      - gold_ore
-      - deepslate_gold_ore
-      - iron_ore
-      - deepslate_iron_ore
-      - coal_ore
-      - deepslate_coal_ore
-      - lapis_ore
-      - deepslate_lapis_ore
-      - mossy_cobblestone
-      - obsidian
-      - chest
-      - diamond_ore
-      - deepslate_diamond_ore
-      - redstone_ore
-      - deepslate_redstone_ore
-      - clay
-      - emerald_ore
-      - deepslate_emerald_ore
-      - ender_chest
-      - ancient_debris
+        - copper_ore
+        - deepslate_copper_ore
+        - gold_ore
+        - deepslate_gold_ore
+        - iron_ore
+        - deepslate_iron_ore
+        - coal_ore
+        - deepslate_coal_ore
+        - lapis_ore
+        - deepslate_lapis_ore
+        - mossy_cobblestone
+        - obsidian
+        - chest
+        - diamond_ore
+        - deepslate_diamond_ore
+        - redstone_ore
+        - deepslate_redstone_ore
+        - clay
+        - emerald_ore
+        - deepslate_emerald_ore
+        - ender_chest
       replacement-blocks:
-      - stone
-      - oak_planks
-      - deepslate
-    armor-stands-do-collision-entity-lookups: false  # default is true
+        - stone
+        - oak_planks
+        - deepslate
+    armor-stands-do-collision-entity-lookups: false # default is true
     disable-explosion-knockback: false
     fix-climbing-bypassing-cramming-rule: false
     nether-ceiling-void-damage-height: 0
@@ -348,3 +350,14 @@ world-settings:
       small_fireball: -1
     feature-seeds:
       generate-random-seeds-for-all: false
+
+  world_nether:
+    anti-xray:
+      max-block-height: 128
+      hidden-blocks:
+        - ancient_debris
+        - nether_gold_ore
+        - nether_quartz_ore
+  world_the_end:
+    anti-xray:
+      enabled: false
